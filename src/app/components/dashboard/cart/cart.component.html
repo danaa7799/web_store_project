@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="row" *ngIf="products.length > 0">
+  <!--  upper side-->
+  <div class="container p-3">
+    <div class="container shadow mt-5 p-3"
+         style="border: rgba(0,0,0,0.10) 1px solid; border-radius: 10px">
+      <h2 class="p-3">Cart </h2>
+      <div class="table-responsive">
+        <div class="">
+          <table>
+            <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>ProductName</th>
+              <th>Product Image</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor=" let item of products; let i = index">
+              <td aria-label="Sr No: ">{{item.id}}</td>
+              <td aria-label="Name: ">{{item.title}}</td>
+              <td aria-label="Image:"><img style="width: 100px" src="{{item.image}}"></td>
+              <td aria-label="Price: ">{{item.price}}</td>
+              <td aria-label="Quantity: ">{{item.quantity}}</td>
+              <td aria-label="Total: ">{{item.total}}</td>
+              <td>
+                <button id="trash_btn{{item.id}}" (click)="removeItem(item)" class="btn btn-danger"><i
+                  class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+              <td>
+                <button routerLink="/home" style="width: 110px" class="btn btn-primary">Shop more</button>
+              </td>
+              <td>
+                <button class="btn btn-success" (click)="this.checkOut = !checkOut">Check out</button>
+              </td>
+              <td><strong>Grand Total : ${{grand_total.toFixed(2)}}</strong></td>
+              <td>
+                <button id="clear_cart_btn" (click)="clearCart()" style="width: 110px" class="btn btn-danger">Empty cart
+                </button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    <div class="class card empty-cart">
+      <h5 class="class card-title">My cart</h5>
+    </div>
+    <div class="class center ">
+
+      <h4>Your cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/home" class="btn btn-primary">Shop Now</button>
+    </div>
+  </div>
+</ng-container>
+
+<div *ngIf="checkOut"
+     class="container d-flex shadow mt-5" style="border: rgba(0,0,0,0.10) 1px solid; border-radius: 10px">
+  <app-user-order></app-user-order>
+</div>

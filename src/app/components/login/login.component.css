@@ -1,0 +1,37 @@
+.btn {
+  margin: 5px;
+}
+
+body {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  height: auto;
+
+}
+#wrapper{
+  background-image: linear-gradient(to bottom, #fbfbf9, #f8f7e8, #f8f2d7, #f9edc5, #fbe7b4) !important;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#main-container {
+  margin-top: 10%;
+}
+
+.sec-btn {
+  background: gray;
+  border: gray 1px solid;
+}
+
+#login_btn{
+  background: #c4975c !important;
+  border: 1px solid transparent !important;
+}

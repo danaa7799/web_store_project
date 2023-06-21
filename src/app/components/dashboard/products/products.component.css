@@ -1,0 +1,45 @@
+
+.card {
+  padding: 20px;
+  justify-content: center;
+  display: flex;
+  border-image: linear-gradient(#fbfbf9, #fae7b4) 50;
+  border-width: 2px;
+  border-style: solid;
+
+}
+
+.icon{
+  color: #c4975c;
+}
+
+.icon:hover{
+  cursor: pointer;
+}
+.btn{
+  border: none;
+  color: #c4975c;
+  font-weight: 500;
+  background: white;
+}
+
+.card img {
+  width: 125px;
+  height: 125px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+  align-self: center;
+
+}
+
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+  align-self: center;
+
+
+}
+
+.centered-btn {
+  align-self: center;
+}

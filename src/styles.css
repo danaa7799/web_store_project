@@ -1,0 +1,13 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+button {
+  padding: 15px 10px;
+  margin-right: 5px;
+  font-weight: 600;
+  border: none;
+  width: 100px;
+
+}
+
+
+

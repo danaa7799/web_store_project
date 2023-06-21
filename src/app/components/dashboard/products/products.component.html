@@ -1,0 +1,28 @@
+<div class="container p-0">
+  <div class="row m-5">
+    <ng-container *ngFor="let item of product_list">
+      <div class="col-xl-3 col-lg-6 col-sm-12  m-0 p-3">
+        <div class="card col-md-12">
+          <i
+            class="fas fa-cart-plus icon"
+            style="font-size: 25px"
+            (click)="addToCartP(item)"
+          ></i>
+          <img src="{{item.image}}" alt="">
+          <h5 id="prod_name{{item.id}}"
+              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; max-width:100ch; ">{{item.title}} </h5>
+          <p
+            style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; max-width:100ch; ">{{item.description}}</p>
+          <p><strong>{{item.price}}$</strong></p>
+<!--          <button class="btn btn-primary centered-btn p-2 m-3" (click)="addToCartP(item)" id="atc_btn{{item.id}}">Add to-->
+<!--            cart-->
+<!--          </button>-->
+
+        </div>
+      </div>
+
+    </ng-container>
+
+
+  </div>
+</div>

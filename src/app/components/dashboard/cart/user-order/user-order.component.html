@@ -1,0 +1,31 @@
+<div class="order">
+  <h1 *ngIf="!order_submitted" class="m-4">Complete your order !</h1>
+  <h1 *ngIf="order_submitted" class="m-4">Order Completed !</h1>
+  <!-- User order submit form -->
+  <form *ngIf="!order_submitted" class="container w-100" [formGroup]="submit_form">
+    <div class="form-group w-100">
+      <div class="input-group p-0">
+        <input id="name" name="name" placeholder="Name" type="text" class="form-control" formControlName="name"
+               required>
+      </div>
+    </div>
+    <div class="form-group w-100">
+      <div class="input-group p-0">
+        <input id="email" name="email" placeholder="Email" type="text" class="form-control" formControlName="email"
+               required>
+      </div>
+    </div>
+
+    <div class="form-group w-100">
+      <div class="input-group p-0">
+        <input id="address" name="address" placeholder="Address" type="text" class="form-control"
+               formControlName="address" required>
+      </div>
+    </div>
+    <button class="btn btn-primary form-group" name="submit" type="submit" (click)="submitForm(submit_form.value)"
+            [disabled]="submit_form.invalid" id="submit_btn">Submit
+    </button>
+  </form>
+  <!-- End -->
+  <!-- Order complete msg -->
+</div>

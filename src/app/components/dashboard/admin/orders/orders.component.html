@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="row">
+  <!--  upper side-->
+  <div class="container">
+    <div class="container shadow mt-5 p-3"
+           style="border: rgba(0,0,0,0.10) 1px solid; border-radius: 10px">
+      <h2 class="p-3">Orders </h2>
+      <div class="table-responsive">
+          <div class="">
+            <table>
+              <thead>
+              <tr>
+                <th>Order Num.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Total</th>
+
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr class="orderRow" (click)="onOrderClick(order.id)" *ngFor=" let order of orders; let i = index">
+                <td class="orderCol" aria-label="Order Num: ">{{order.id}}</td>
+                <td class="orderCol" aria-label="Name: ">{{order.name}}</td>
+                <td class="orderCol" aria-label="Email: ">{{order.email}}</td>
+                <td class="orderCol" aria-label="Address: ">{{order.address}}</td>
+                <td class="orderCol" aria-label="Total: ">{{order.order_total.toFixed(2)}}</td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  <!--  lower side-->
+<div class="row">
+  <div class="container mb-5">
+  <div class="container" *ngIf="currentOrderId">
+    <div class="container shadow mt-5 justify-content-center p-3"
+         style="border: rgba(0,0,0,0.10) 1px solid; border-radius: 10px">
+      <h2 class="p-3">Order Details </h2>
+      <h3 class="p-3" style="word-wrap: break-word">Ord Num.{{currentOrderId}}</h3>
+
+      <!--      Customer info-->
+      <form class="container w-100 p-1" [formGroup]="costumerInfo">
+        <div class="form-group w-100">
+          <div class="input-group p-1">
+            <input id="name" name="name" placeholder="Name" type="text" class="form-control" formControlName="name"
+                   required>
+          </div>
+        </div>
+        <div class="form-group w-100">
+          <div class="input-group p-1">
+            <input id="email" name="email" placeholder="Email" type="text" class="form-control"
+                   formControlName="email" required>
+          </div>
+        </div>
+
+        <div class="form-group w-100">
+          <div class="input-group p-1">
+            <input id="address" name="address" placeholder="Address" type="text" class="form-control"
+                   formControlName="address" required>
+          </div>
+        </div>
+      </form>
+      <!--      Order Products-->
+      <div class="">
+        <div class="cart-product ">
+          <table class="">
+            <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor=" let item of currentOrder['items']; let i = index">
+              <td aria-label="Sr.No: ">{{item.id}}</td>
+              <td aria-label="Product Name: ">{{item.title}}</td>
+              <td aria-label="Price: ">{{item.price}}</td>
+              <td aria-label="Quantity: ">{{item.quantity}}</td>
+              <td aria-label="Total: ">{{item.total}}</td>
+              <td >
+                <button id="trash_btn{{item.id}}" (click)="deleteItemFromOrder(i)" class="btn btn-danger"><i
+                  class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+          <h4>Grand Total: {{currentOrder.order_total.toFixed(2)}}</h4>
+
+        </div>
+        <button class="btn btn-danger" (click)="deleteOrderFromDB(currentOrderId)">Delete Order</button>
+        <button class="btn btn-success" (click)="updateOrderOnDB()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+

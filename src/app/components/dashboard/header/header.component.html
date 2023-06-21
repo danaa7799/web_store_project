@@ -1,0 +1,78 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light d-flex shadow"
+  xmlns="http://www.w3.org/1999/html"
+  style="justify-content: center"
+>
+  <!--  home logo-->
+  <div class="row nav" style="width: 100%">
+    <div class="col" style="width: 100px" align="left">
+      <img (click)="onHomeClick()" class="logo" src="assets/images/logo.png" />
+    </div>
+
+    <!--  -->
+    <!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"-->
+    <!--          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--    <span class="navbar-toggler-icon"></span>-->
+    <!--  </button>-->
+
+    <div class="col" align="center">
+      <!--  main name logo -->
+      <img class="header" src="assets/images/name.png" />
+    </div>
+
+    <!--right side icons-->
+    <div class="col" style="width: 100px" align="right">
+      <div class="row" id="hello">
+        <a *ngIf="!isAnonymous()"
+          >Hello {{ user_name.substring(0, user_name.indexOf("@"))
+          }}<span class="sr-only">(current)</span></a
+        >
+        <a *ngIf="isAnonymous()"
+        >Hello guest<span class="sr-only">(current)</span></a
+        >
+
+      </div>
+      <div class="row" id="icons-row">
+        <div class="col-md-4">
+          <i
+            class="fas fa-user-cog icon"
+            style="font-size: 25px"
+            *ngIf="!isAnonymous()"
+            (click)="onManageOrdersClick()"
+          ></i>
+        </div>
+
+        <div class="col-md-4">
+          <i
+            class="fas fa-sign-out icon"
+            style="font-size: 25px"
+            *ngIf="!isAnonymous()"
+            (click)="onLogOut()"
+          ></i>
+          <i
+            class="fas fa-sign-in icon"
+            style="font-size: 25px"
+            *ngIf="isAnonymous()"
+            (click)="onLogIn()"
+          ></i>
+        </div>
+
+        <div class="col-md-4">
+          <i
+            [routerLink]="['/cart']"
+            style="font-size: 25px"
+            class="fas fa-cart-shopping icon"
+          >
+            <div
+              id="total_items_icon"
+              style="font-size: 8px"
+              class="badge bg-danger"
+            >
+              {{ total_items }}
+            </div>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

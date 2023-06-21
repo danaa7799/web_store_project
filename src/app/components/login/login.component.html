@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Login in</title>
+</head>
+
+<div class="container " id="main-container">
+  <div id="wrapper" class="col-lg-6 col-sm-12 shadow-lg rounded">
+    <div class="row d-flex justify-content-center align-content-center">
+      <h1 class="m-4 text-center">Login</h1>
+      <form class="container w-100" [formGroup]="login_form">
+        <div class="form-group w-100">
+          <div class="input-group p-0">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div>
+            <input id="email" name="email" placeholder="Email" type="text" class="form-control" formControlName="email"
+                   required>
+          </div>
+        </div>
+        <div class="form-group w-100">
+          <div class="input-group p-0">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <input id="password" name="password" placeholder="Password" type="password" class="form-control"
+                   formControlName="password" required>
+          </div>
+          <small *ngIf="login_clicked" id="wrong-login" class="form-text " style="color: red">One of the details entered is
+            incorrect</small>
+        </div>
+      </form>
+      <div class="form-group d-flex justify-content-center align-content-center">
+        <button name="login" type="submit" class="btn btn-primary" (click)="loginSubmit(login_form.value)"
+                [disabled]="login_form.invalid" id="login_btn">Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

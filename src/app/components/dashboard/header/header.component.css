@@ -1,0 +1,51 @@
+.nav-link {
+  background-color: unset;
+
+}
+.navbar{
+  background-image: linear-gradient(to bottom, #fbfbf9, #f8f7e8, #f8f2d7, #f9edc5, #fbe7b4) !important;
+}
+.logo{
+  width: 130px;
+  height: 110px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+.header{
+  width: 200px;
+  height: 100px;
+}
+
+.row nav{
+  --bs-gutter-x: 0rem !important;
+  margin: 0px !important;
+
+}
+.row#icons-row{
+  width: 250px;
+  height:70%;
+  align-items: end;
+  color: #a96d27ab;
+}
+
+.row#hello{
+  width: 250px;
+  align-items: end;
+  color:#a96d27ab;
+  font-size: 18px;
+  font-weight: 500;
+
+}
+.icon:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
